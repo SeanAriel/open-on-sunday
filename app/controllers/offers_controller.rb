@@ -15,7 +15,7 @@ class OffersController < ApplicationController
     @offer.sold = false
 
     @offer.save!
-    redirect_to 'pages#home'
+    redirect_to '/'
 
    end
 
