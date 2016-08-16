@@ -1,0 +1,52 @@
+
+<div class="row text-center">
+  <div class="col-md-4 col-sm-offset-4">
+    <%= form_for offer, :html => {class: 'form-group'}  do |f| %>
+    <p>  <%= f.label :name %> </p>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+</div>
+  <div class="col-sm-4 col-sm-offset-4">
+    <p><%= f.label :description %>
+    </p>  <%= f.text_area :description, class: 'form-control' %>
+  </div>
+  <div class="col-sm-4 col-sm-offset-4">
+    <p>
+      <%= f.label :price %>
+    </p>
+    <p>
+      <%= f.number_field :price, in: 1.0..200000000.0, step: 0.01, class: 'form-control' %>
+    </p>
+</div>
+  <div class="col-sm-4 col-sm-offset-4">
+    <p>
+      <%= f.label :category %>
+    </p>
+    <p>
+      <%=f.collection_select(:category_id,Category.all, :id, :name, class: 'form-control')%>
+    </p>
+</div>
+
+  <div class="col-sm-4 col-sm-offset-4">
+    <p>
+      <%= f.label :city %>
+    </p>
+    <p>
+      <%= f.text_field :city, class: 'form-control' %>
+    </p>
+</div>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+
+    <div class='jumbotron'>
+      <%# @offer.latitude = markers[0].geometry.location.lat %>
+      <%# @offer.longitude = markers[0].geometry.location.lng %>
+
+      <div class="actions">
+        <%=  f.submit 'submit', :class => 'btn btn-primary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
