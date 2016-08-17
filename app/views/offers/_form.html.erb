@@ -1,50 +1,77 @@
 <%= form_for offer, :html => {class: 'form-group'}  do |f| %>
 
-<div class="row text-center">
-  <div class="col-md-4 col-sm-offset-4">
-    <p>  <%= f.label :name, class:'label label-default' %> </p>
+
+<div class="row">
+<div class="text-center">
+  <div class="col-sm-1 col-sm-offset-4">
+<%= f.label :name, class:'label label-primary' %>
+</div>
+<div class="col-sm-3">
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 </div>
-  <div class="col-sm-4 col-sm-offset-4">
-    <p><%= f.label :description, class:'label label-default'  %>
-    </p>  <%= f.text_area :description, class: 'form-control' %>
-  </div>
-  <div class="col-sm-4 col-sm-offset-4">
-    <p>
-      <%= f.label :price, class:'label label-default'  %>
-    </p>
-    <p>
-      <%= f.number_field :price, in: 1.0..200000000.0, step: 0.01, class: 'form-control' %>
-    </p>
 </div>
-  <div class="col-sm-4 col-sm-offset-4">
-    <p>
-      <%= f.label :category , class:'label label-default' %>
-    </p>
-    <p>
-      <%=f.collection_select(:category_id,Category.all, :id, :name, class: 'form-control')%>
-    </p>
-</div>
+<p></p>
+<div class="row">
 
-  <div class="col-sm-4 col-sm-offset-4">
-    <p>
-      <%= f.label :Location , class:'label label-default' %>
-    </p>
-    <p>
-      <%= f.text_field :city, class: 'form-control' %>
-    </p>
+  <div class="col-sm-1 col-sm-offset-4">
+  <%= f.label :description, class:'label label-primary'  %>
 </div>
-<div class="col-sm-4 col-sm-offset-4">
-  <p>
-  <h2 class="label label-default"> Picture </h2>
-  </p>
+<div class="col-sm-3">
+
+  <%= f.text_area :description, class: 'form-control' %>
+  </div>
+</div>
+<p></p>
+<div class="row">
+
+
+  <div class="col-sm-1 col-sm-offset-4">
+        <%= f.label :price, class:'label label-primary'  %>
+      </div>
+      <div class="col-sm-3">
+
+      <%= f.number_field :price, in: 1.0..200000000.0, step: 0.01, class: 'form-control' %>
+</div>
+</div>
+  <p></p>
+<div class="row">
+
+
+  <div class="col-sm-1 col-sm-offset-4">
+      <%= f.label :category , class:'label label-primary' %>
+    </div>
+    <div class="col-sm-3">
+
+      <%= f.collection_select(:category_id,Category.all, :id, :name, class: 'form-control')%>
+  </div>
+</div>
+<p></p>
+<div class="row">
+
+  <div class="col-sm-1 col-sm-offset-4">
+      <%= f.label :Location , class:'label label-primary' %>
+    </div>
+    <div class="col-sm-3">
+
+      <%= f.text_field :city, class: 'form-control' %>
+</div>
+</div>
+<div class="row">
+
+<div class="col-sm-1 col-sm-offset-4">
+  <h2 class="label label-primary"> Picture </h2>
   <p class="text-center">
+
 <%= f.file_field :photo %>
+</div>
+<div class="col-sm-3">
+
 <%= f.hidden_field :photo_cache %>
 </p>
 </div>
-
+</div>
+<p></p>
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
 
