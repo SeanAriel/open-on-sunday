@@ -6,6 +6,7 @@ class Offer < ApplicationRecord
   geocoded_by :city
   after_validation :geocode, if: :city_changed?
   mount_uploader :photo, PhotoUploader
+  searchkick
 
   def address_changed?
     false  #george zal dit wel geregeld hebben, zeker? Dit hadden we even nodig om voort the kunnen werken
