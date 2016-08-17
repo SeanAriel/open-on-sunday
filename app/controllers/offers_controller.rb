@@ -7,7 +7,9 @@ class OffersController < ApplicationController
   end
 
     def index
-      @offers = Offer.where(category_id: params[:category_id]).order(created_at: :desc)
+      #@offers = Offer.where(category_id: params[:category_id]).order(created_at: :desc)
+      @offers = Offer.all
+
     end
 
 
