@@ -1,0 +1,37 @@
+
+.login-card {
+  background-color: #067BC2;
+  padding: 20px;
+
+  width: 300px;
+  height: 450px;
+  border-radius: 5px;
+
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #EFF6FF;
+
+  margin: 30px auto;
+  transition: box-shadow 150ms, transform 150ms;
+  text-align: center;
+}
+
+.login-card:hover{
+  box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+  /*transform: scale(1.1);*/
+}
+
+.login-card:active{
+  transform: scale(1.2);
+}
+
+.form-actions{
+  margin-bottom: 30px;
+}
+
+.sign-up-links a {
+  color:white;
+}
+
+.sign-up-links a:hover{
+  color:white;
+}
