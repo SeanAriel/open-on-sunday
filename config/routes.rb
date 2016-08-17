@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   resources :offers do
     resources :availabilities
   end
-
 end
