@@ -20,9 +20,12 @@ class OffersController < ApplicationController
    end
 
    def show
-    @user = @offer.user.first_name
+    @alert_message = 'Careful bro'
+    @user = @offer.user
+    @offer_coordinates = { lat: @offer.lat, lng: @offer.lng }.to_json
     # @reviews = @user.reviews.where(rating: 5).limit(3)
     # @reviews << Review.where('rating < 2').limit(1)
+
    end
 
 
