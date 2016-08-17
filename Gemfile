@@ -9,6 +9,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise', github: 'plataformatec/devise'
 gem 'redis'
 gem 'omniauth-facebook'
+gem "geocoder"
 
 gem 'carrierwave'
 gem 'cloudinary', '1.1.0'
