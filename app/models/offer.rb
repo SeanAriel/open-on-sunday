@@ -5,4 +5,6 @@ class Offer < ApplicationRecord
   belongs_to :category
   geocoded_by :city
   after_validation :geocode, if: :address_changed?
+  mount_uploader :photo, PhotoUploader
+
 end

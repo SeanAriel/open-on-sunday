@@ -25,3 +25,7 @@ cat = Category.new(name: 'Jewelry')
 cat.save
 cat = Category.new(name: 'Accessories')
 cat.save
+
+
+of = Offer.new(name: 'test off1', city:'gare centrale, bruxelles')
+of.save
