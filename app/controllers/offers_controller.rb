@@ -36,6 +36,8 @@ class OffersController < ApplicationController
     end
     # @reviews = @user.reviews.where(rating: 5).limit(3)
     # @reviews << Review.where('rating < 2').limit(1)
+    @availabilities = @offer.availabilities
+
   end
 
   def edit
