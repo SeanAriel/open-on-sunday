@@ -2,17 +2,17 @@
 
 <div class="row text-center">
   <div class="col-md-4 col-sm-offset-4">
-    <p>  <%= f.label :name %> </p>
+    <p>  <%= f.label :name, class:'label label-default' %> </p>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
 </div>
   <div class="col-sm-4 col-sm-offset-4">
-    <p><%= f.label :description %>
+    <p><%= f.label :description, class:'label label-default'  %>
     </p>  <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="col-sm-4 col-sm-offset-4">
     <p>
-      <%= f.label :price %>
+      <%= f.label :price, class:'label label-default'  %>
     </p>
     <p>
       <%= f.number_field :price, in: 1.0..200000000.0, step: 0.01, class: 'form-control' %>
@@ -20,7 +20,7 @@
 </div>
   <div class="col-sm-4 col-sm-offset-4">
     <p>
-      <%= f.label :category %>
+      <%= f.label :category , class:'label label-default' %>
     </p>
     <p>
       <%=f.collection_select(:category_id,Category.all, :id, :name, class: 'form-control')%>
@@ -29,12 +29,22 @@
 
   <div class="col-sm-4 col-sm-offset-4">
     <p>
-      <%= f.label :city %>
+      <%= f.label :Location , class:'label label-default' %>
     </p>
     <p>
       <%= f.text_field :city, class: 'form-control' %>
     </p>
 </div>
+<div class="col-sm-4 col-sm-offset-4">
+  <p>
+  <h2 class="label label-default"> Picture </h2>
+  </p>
+  <p class="text-center">
+<%= f.file_field :photo  %>
+<%= f.hidden_field :photo_cache %>
+</p>
+</div>
+
 <div class="row">
   <div class="col-sm-4 col-sm-offset-4">
 
