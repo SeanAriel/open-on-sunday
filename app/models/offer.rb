@@ -7,4 +7,7 @@ class Offer < ApplicationRecord
   after_validation :geocode, if: :city_changed?
   mount_uploader :photo, PhotoUploader
 
+  def address_changed?
+    false  #george zal dit wel geregeld hebben, zeker? Dit hadden we even nodig om voort the kunnen werken
+  end
 end
