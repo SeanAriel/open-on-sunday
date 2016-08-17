@@ -2,7 +2,7 @@
  * CSS code specific to home page
  * (margin/padding adjustments)
  * ------------------------------------- */
-.banner {
+ .banner {
   color: white;
   text-align: center;
   height: 100vh;
@@ -17,4 +17,12 @@
   margin-top: 30px;
   border-radius: 10px;
   width: 150px;
+}
+
+.banner-content {
+  margin: 0 auto;
+}
+
+.btn.btn-primary.btn-lg #id{
+  color: red
 }
