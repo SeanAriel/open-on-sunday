@@ -9,6 +9,14 @@
   justify-content: space-between;
 }
 
-.long-size {
-  height: 300px;
+.half-element {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
+
+.row-padded {
+  padding: 10px;
+}
+
