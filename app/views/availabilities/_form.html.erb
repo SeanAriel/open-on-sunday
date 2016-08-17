@@ -1,0 +1,35 @@
+<%= form_for ([@offer, availability]) do |f| %>
+
+<div class="row text-center">
+  <div class="col-md-4 col-sm-offset-4">
+
+    <p>  <%= f.label( :startdate, "From when ?",  class:'label label-default') %> </p>
+    <%= f.datetime_select :startdate, class: 'form-control' %>
+  </div>
+</div>
+
+
+<div class="row text-center">
+  <div class="col-md-4 col-sm-offset-4">
+
+    <p>  <%= f.label( :stopdate, "To ?",  class:'label label-default') %> </p>
+    <%= f.datetime_select :stopdate, class: 'form-control' %>
+  </div>
+</div>
+
+<p></p>
+
+<div class="row text-center">
+  <div class="col-md-4 col-sm-offset-4">
+    <div class='jumbotron'>
+      <%# @offer.latitude = markers[0].geometry.location.lat %>
+      <%# @offer.longitude = markers[0].geometry.location.lng %>
+
+      <div class="actions">
+        <%=  f.submit 'submit', :class => 'btn btn-primary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
