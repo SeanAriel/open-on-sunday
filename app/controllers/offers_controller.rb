@@ -6,6 +6,10 @@ class OffersController < ApplicationController
     @offer = Offer.new
   end
 
+    def index
+      @offers = Offer.all
+    end
+
 
   def create
     # number_to_currency( )
