@@ -10,7 +10,8 @@ gem 'devise', github: 'plataformatec/devise'
 gem 'redis'
 gem 'omniauth-facebook'
 
-
+gem 'carrierwave'
+gem 'cloudinary', '1.1.0'
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
