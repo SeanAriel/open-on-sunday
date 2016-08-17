@@ -1,0 +1,21 @@
+
+
+<div class="wrapper">
+ <div class="container">
+  <div class="row">
+    <% @offers.each do |offer| %>
+
+    <div class="col-xs-12 col-sm-4">
+      <div class="offer-card">
+       <div class="card" style="background: #FCD0A1, url('images/logo.jpg');">
+        <div class="card-offer-content">
+          <h2><%= offer.name %></h2>
+          <p><%= offer.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+</div>
