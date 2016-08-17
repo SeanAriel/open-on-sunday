@@ -3,6 +3,7 @@
     <div class="row row-padded">
       <div class="col-xs-12 col-lg-6" style="color: white; background-color:lightgrey">
           <h1> Picture</h1>
+          <%= cl_image_tag @offer.photo, height: 300, width: 400, crop: :fill unless @cocktail.photo.url.nil?%>
       </div>
     </div>
     <div class="row row-padded">
@@ -73,4 +74,3 @@
 
 
 <%= render 'map', offer: @offer %>
-
