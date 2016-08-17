@@ -4,8 +4,8 @@
   padding: 20px;
 
   width: 300px;
-  height: 500px;
-  border-radius: 4px;
+  height: 450px;
+  border-radius: 5px;
 
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
   color: #EFF6FF;
@@ -24,10 +24,14 @@
   transform: scale(1.2);
 }
 
-a {
-  color: white;
-}
-
 .form-actions{
   margin-bottom: 30px;
+}
+
+.sign-up-links a {
+  color:white;
+}
+
+.sign-up-links a:hover{
+  color:white;
 }
