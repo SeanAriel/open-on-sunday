@@ -1,0 +1,29 @@
+
+<div class="container">
+  <div class="row">
+    <% @owner_meetings.each do |meeting| %>
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to offers_path do %>
+      <div class="offer-card">
+        <div class="card" style="background: #D6E5E3;">
+          <div class="card-category"><%= meeting.status %></div>
+          <div class="card-description">
+            <h2><%= 'erfer' %></h2>
+            <p><%= 'oererferef' %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <% if meeting.status == "Requested to Issuer"%>
+      <%= link_to 'Delete This Meeting', offer_meeting_path(meeting.offer_id, meeting), method: :delete, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px;" %>
+      <% end %>
+
+      <% if meeting.status == "Requested to Issuer"%>
+      <%= link_to 'Update this Meeting', edit_offer_meeting_path(meeting.offer_id, meeting), class: "btn btn-primary", style: "border-radius: 5px; padding: 10px;" %>
+      <% end %>
+
+    </div>
+      <% end %>
+  </div>
+</div>
