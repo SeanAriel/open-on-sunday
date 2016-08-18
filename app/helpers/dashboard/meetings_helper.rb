@@ -1,0 +1,2 @@
+module Dashboard::MeetingsHelper
+end
