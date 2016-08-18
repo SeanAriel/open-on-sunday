@@ -8,4 +8,7 @@ Rails.application.routes.draw do
     resources :availabilities
     resources :meetings
   end
+  namespace :dashboard do
+    resources :offers, only: [:index]
+  end
 end
