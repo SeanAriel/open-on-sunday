@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817084203) do
+ActiveRecord::Schema.define(version: 20160818092741) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,8 +34,10 @@ ActiveRecord::Schema.define(version: 20160817084203) do
     t.string   "status"
     t.integer  "user_id"
     t.integer  "offer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "availability_id"
+    t.index ["availability_id"], name: "index_meetings_on_availability_id", using: :btree
     t.index ["offer_id"], name: "index_meetings_on_offer_id", using: :btree
     t.index ["user_id"], name: "index_meetings_on_user_id", using: :btree
   end
@@ -93,6 +95,7 @@ ActiveRecord::Schema.define(version: 20160817084203) do
   end
 
   add_foreign_key "availabilities", "offers"
+  add_foreign_key "meetings", "availabilities"
   add_foreign_key "meetings", "offers"
   add_foreign_key "meetings", "users"
   add_foreign_key "offers", "categories"
