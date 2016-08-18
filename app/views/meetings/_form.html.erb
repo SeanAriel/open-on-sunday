@@ -1,0 +1,28 @@
+<%= form_for [offer, meeting] do |f| %>
+
+
+<div class="row">
+  <div class="col-sm-1 col-sm-offset-4">
+      <%= f.label :category , class:'label label-primary' %>
+    </div>
+    <div class="col-sm-3">
+
+      <%= f.collection_select(:availability_id, @offer.availabilities, :id, :startdate, class: 'form-control')%>
+  </div>
+</div>
+<p></p>
+<div class="row">
+  <div class="col-sm-4 col-sm-offset-4">
+
+    <div class='jumbotron'>
+      <%# @offer.latitude = markers[0].geometry.location.lat %>
+      <%# @offer.longitude = markers[0].geometry.location.lng %>
+
+      <div class="actions">
+        <%=  f.submit 'submit', :class => 'btn btn-primary' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
