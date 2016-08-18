@@ -1,0 +1,29 @@
+
+<div class="container">
+  <div class="row">
+    <% @bookings.each do |booking| %>
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to offers_path do %>
+      <div class="offer-card">
+        <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
+          <div class="card-category"><%= 'mate' %></div>
+          <div class="card-description">
+            <h2><%= 'mate' %></h2>
+            <p><%= 'mate' %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+
+      <% if booking.status == "Requested to Issuer"%>
+      <%= link_to 'Confirm This Meeting', confirm_dashboard_meeting_path(booking), method: :patch, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px;" %>
+      <% end %>
+
+      <% if booking.status == "Requested to Issuer"%>
+      <%= link_to 'Decline This Meeting', decline_dashboard_meeting_path(booking), method: :patch, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px;" %>
+      <% end %>
+
+    </div>
+      <% end %>
+  </div>
+</div>
