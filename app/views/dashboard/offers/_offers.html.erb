@@ -4,15 +4,19 @@
     <% @offers.each do |offer| %>
     <div class="col-xs-12 col-sm-4">
       <%= link_to offer_path(offer) do %>
-      <div class="offer-card">
-        <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
-          <div class="card-category"><%= offer.price %></div>
-          <div class="card-description">
-            <h2><%= offer.name %></h2>
-            <p><%= offer.description %></p>
+        <div class="card alert-success" >
+
+          <div class="card-block ">
+            <div class="card-header text-center"> <h1><%= offer.name %> </h1></div>
+
+          <div class="card-text ">
+            <p class="card-text" style="word-wrap:break-word"><%= offer.description %></p>
           </div>
+          <div class="card-footer text-muted">
+          <%= offer.price %> EUR
+  </div>
         </div>
-      </div>
+        </div>
       <% end %>
     </div>
       <% end %>
