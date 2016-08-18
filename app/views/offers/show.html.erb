@@ -6,7 +6,7 @@
         <div class="jumbotron text-center">
           <h3 class="text-primary"> <%= @offer.name %> </h3>
         </div>
-        <div class="well">
+        <div class="panel clearfix">
         <%= cl_image_tag @offer.photo, height: 200, width: 300, crop: :fill unless @offer.photo.url.nil?%>
       </div>
       </div>
@@ -14,17 +14,17 @@
 
 
         <h2 class="text-primary"> <strong> Price :</strong>  </h2><h1 class="bold"> <%= @offer.price %> EUR </h1>
-        <h1 class="text-primary"> <strong> Availabilities:</strong> </h1>
-        <div class="well well-invers">  <% @availabilities.each do |availability| %>
+        <h1 class="text-primary"  style="word-wrap:break-word" > <strong> Availabilities:</strong> </h1>
+        <div class="well well-inverse">  <% @availabilities.each do |availability| %>
           <div class="card">
           <dl>
             <dt class="text-info">Starts :</dt>
-            <dd class="text-right"> <%= availability.startdate.to_formatted_s(:short)  %> </dd>
+            <dd class="text-right text-danger"> <%= availability.startdate.to_formatted_s(:short)  %> </dd>
           </dl>
           <dl>
             <dt class="text-info">Stops :</dt>
 
-            <dd  class="text-right"> <%= availability.stopdate.time.to_formatted_s(:short)   %>  </dd>
+            <dd  class="text-right text-danger"> <%= availability.stopdate.time.to_formatted_s(:short)   %>  </dd>
           </dl>
   </div>
 
