@@ -1,7 +1,7 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
 #  accept_nested_attributes_for :availabilities, :allow_destroy => true
-  before_action :set_offer, only: [:show, :destroy, :edit, :update]
+  before_action :set_offer, only: [:destroy, :edit, :update]
   def new
     @offer = Offer.new
   end
@@ -23,6 +23,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
     @alert_message = 'Careful bro'
     @user = @offer.user
     # @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }.to_json
@@ -64,7 +65,7 @@ class OffersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_offer
-    @offer = Offer.find(params[:id])
+    @offer = current_user.offers.find(params[:id])
   end
     # Never trust parameters from the scary internet, only allow the white list through.
   def offer_params
