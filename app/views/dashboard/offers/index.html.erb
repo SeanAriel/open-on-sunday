@@ -1,0 +1,38 @@
+<div class="banner-dashboard">
+
+    <div class="profile">
+      <%#= cl_image_tag @user.photo, class: avatar-large, crop: :fill unless @offer.photo.url.nil?%>
+      <div>
+        <h1> Hello <%= @user.first_name%>, Welcome to your Dashboard. </h1>
+      </div>
+    </div>
+    <div class="tabs">
+      <a class="tab active" href="#" data-target="#offers" role="tab" data-toggle="tab" aria-expanded="true">
+        <p>Current offers</p>
+      </a>
+      <a class="tab" href="#" data-target="#reviews" role="tab" data-toggle="tab" aria-expanded="true">
+        <p>Reviews</p>
+      </a>
+      <a class="tab" href="#" data-target="#upcoming-meeting" role="tab" data-toggle="tab" aria-expanded="true">
+        <p>Upcoming Meeting</p>
+      </a>
+      <a class="tab" href="#" data-target="#successful-meetings" role="tab" data-toggle="tab" aria-expanded="true">
+        <p>Successful Meetings</p>
+      </a>
+    </div>
+
+
+    <div class="tab-content" id="offers">
+      <%= render 'offers', offer: @offer %>
+    </div>
+
+
+    <div class="tab-content hidden" id="reviews">aaaaaaaa
+    </div>
+
+    <div class="tab-content hidden" id="upcoming-meeting">dddd
+    </div>
+
+    <div class="tab-content hidden" id="successful-meetings">fgggg
+    </div>
+</div>

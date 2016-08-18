@@ -1,0 +1,2 @@
+module Offers::DashboardsHelper
+end

@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   resources :offers do
     resources :availabilities
   end
+  namespace :dashboard do
+    resources :offers, only: [:index]
+  end
 end
