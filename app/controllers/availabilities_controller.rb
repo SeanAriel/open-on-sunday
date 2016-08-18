@@ -10,8 +10,10 @@ class AvailabilitiesController < ApplicationController
   def create
     @availability = Availability.new(availability_params)
     @availability[:offer_id] = @offer.id
+    #@availability = @offer.build.availability(availability_params)
     @availability.save!
-    redirect_to @offer
+
+    redirect_to offer_path(@offer)
   end
 
   def edit
