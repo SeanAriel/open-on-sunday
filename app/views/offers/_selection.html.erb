@@ -1,76 +1,75 @@
 
-<div class="wrapper-selection">
 
-  <div class="banner-leftovers">
-    <div class="banner-content text-center">
-      <h2>Your current search: </h2>
-    </div>
-  </div>
-
- <div class="container">
-  <div class="row">
-
-          <% @selection.each do |offer| %>
-      <div class="col-xs-4">
-               <div class="well">
-                 <div class="label-success">
-                <%= link_to offer_path(offer) do %>
-                <h2 class="text-center label-info"><%= offer.name %></h2>
-                  <div class="card-block">
-                    <div class="card">
-                    <h3><strong> Description: </strong></h3>
-                    <p class="text-danger"  style="word-wrap:break-word" ><%= offer.description %></p>
-                </div>
-                <h4 class="text"><%= offer.price %> EUR</h4>
-
-                  </div>
-        <% end %>
-          </div>
-          </div>
-      </div>
-      <% end %>
-
-
-    </div>
+<div class="jumbotron label-success">
+  <div class="text-center">
+    <h2>Your current search: </h2>
   </div>
 </div>
 
+<div class="container">
+  <div class="row">
 
-<div class="wrapper-leftovers">
+      <% @selection.each do |offer| %>
+      <div class="col-xs-4">
 
-  <div class="banner-leftovers">
-    <div class="banner-content text-center">
+      <div class="well">
+        <div class="panel panel-success">
+          <%= link_to offer_path(offer) do %>
+          <div class="panel-heading text-center ">
+            <h2 class="panel-title"> <%= offer.name %></h2>
+          </div>
+          <div class="panel-body">
+            <h3  style="word-wrap:break-word"><strong > Description: </strong></h3>
+            <p class="text-danger"  style="word-wrap:break-word" ><%= offer.description %></p>
+          </div>
+          <h4 class="panel-footer"><%= offer.price %> EUR</h4>
+        </div>
 
 
-      <h2>Other possibilities</h2>
-      <p>We might have an alternative for you. Check these out...</p>
+          <% end %>
+      </div>
     </div>
+      <% end %>
   </div>
 
-  <div class="container">
-    <div class="row">
 
-        <% @left_over_array.each do |offer| %>
-      <div class="col-xs-4">
-        <div class="offer-card">
-          <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
-            <div class="card-category"><%= offer.price %> EUR</div>
-            <div class="card-description">
-          <%= link_to offer_path(offer) do %>
-              <h2>
-                <%= offer.name %>
-              </h2>
+</div>
+
+
+
+<div class="banner-leftovers">
+  <div class="banner-content text-center">
+
+
+    <h2>Other possibilities</h2>
+    <p>We might have an alternative for you. Check these out...</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+
+    <% @left_over_array.each do |offer| %>
+    <div class="col-xs-4">
+      <div class="offer-card">
+        <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
+          <div class="card-category"><%= offer.price %> EUR</div>
+          <div class="card-description">
+            <%= link_to offer_path(offer) do %>
+            <h2>
+              <%= offer.name %>
+            </h2>
             <% end %>
-              <p>
+            <p>
               <%= offer.description %>
-              </p>
-            </div>
+            </p>
           </div>
         </div>
       </div>
-        <% end %>
-
-
     </div>
+    <% end %>
+
+
   </div>
+</div>
 </div>

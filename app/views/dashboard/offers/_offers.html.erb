@@ -6,18 +6,18 @@
       <%= link_to offer_path(offer) do %>
       <div class="well">
         <div class="panel panel-info">
-         <div class="panel-heading text-warning text-center"> <h1><%= offer.name %> </h1></div>
-
+          <div class="panel-heading text-warning text-center"> <h1><%= offer.name %> </h1>
+          </div>
           <div class="panel-body">
             <p class="text-danger" style="word-wrap:break-word"><%= offer.description %></p>
           </div>
           <div class="text-right">
-          <%= offer.price %> EUR
-  </div>
+            <%= offer.price %> EUR
+          </div>
         </div>
-        </div>
+      </div>
       <% end %>
     </div>
-      <% end %>
+    <% end %>
   </div>
 </div>

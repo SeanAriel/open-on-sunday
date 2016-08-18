@@ -1,5 +1,4 @@
 
-<div class="wrapper-leftovers">
 
   <div class="banner-leftovers">
     <div class="banner-content text-center">
@@ -13,27 +12,20 @@
   <div class="container">
     <div class="row">
 
-        <% @left_over_array.each do |offer| %>
+      <% @left_over_array.each do |offer| %>
       <div class="col-xs-4">
-        <div class="offer-card">
-          <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
-            <div class="card-category"><%= offer.price %> EUR</div>
-            <div class="card-description">
+        <div class="panel panel-warning">
           <%= link_to offer_path(offer) do %>
-              <h2>
-                <%= offer.name %>
-              </h2>
-            <% end %>
-              <p>
-              <%= offer.description %>
-              </p>
+          <div class="panel-heading"><h2 class="panel-title"> <%= offer.name %> </h2></div>
+          <div class="panel-body">
+              <h3  style="word-wrap:break-word"><strong > Description: </strong></h3>
+              <p class="text-danger"  style="word-wrap:break-word" ><%= offer.description %></p>
             </div>
+            <h4 class="panel-footer"><%= offer.price %> EUR</h4>
+
           </div>
+          <% end %>
         </div>
-      </div>
-        <% end %>
-
-
-    </div>
+    <% end %>
   </div>
-</div>
+  </div>
