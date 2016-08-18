@@ -50,6 +50,7 @@
           </ul>
         </div>
       </div>
+      <%= link_to t(".top_call_to_action", default: "Sell stuff"), new_offer_path, class: "navbar-wagon-item navbar-wagon-button btn" %>
 
     <% else %>
 
@@ -59,7 +60,6 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Sell stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
@@ -74,4 +74,3 @@
     </div>
   </div>
 </div>
-
