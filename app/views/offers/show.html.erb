@@ -15,7 +15,7 @@
 
       <h2 class="text-primary"> <strong> Price :</strong>  </h2><h1 class="bold"> <%= @offer.price %> EUR </h1>
       <h1 class="text-primary"> <strong> Availabilities:</strong> </h1>
-        <% @availabilities.each do |availability| %>
+      <div class="well well-invers">  <% @availabilities.each do |availability| %>
         <div class="card">
         <dl>
           <dt class="text-info">Starts :</dt>
@@ -29,8 +29,9 @@
 </div>
 
         <% end %>
-        <h2> <strong> Description :</strong>  </h2>
-      <p class="label label-alert"><%= @offer.description %></p>
+        </div>
+        <h2 class="text-primary"> <strong> Description :</strong>  </h2>
+      <p class="text-info"><%= @offer.description %></p>
     </div>
 
   <div class="col-xs-12 col-lg-6">
