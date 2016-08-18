@@ -1,14 +1,41 @@
 class OffersController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
-#  accept_nested_attributes_for :availabilities, :allow_destroy => true
-  before_action :set_offer, only: [:destroy, :edit, :update]
+  before_action :set_offer, only: [:show, :destroy, :edit, :update]
+
   def new
     @offer = Offer.new
   end
 
-    def index
-      @offers = Offer.where(category_id: params[:category_id]).order(created_at: :desc)
+  def index
+    # filters
+    @search = params[:search_term]
+    @city = params[:city]
+    @category = params[:category]
+
+    @selection = Offer.all
+
+    # filter on title/description
+    if @search.present?
+      @selection = @selection.where("LOWER(name) = ?", @search.downcase)
     end
+
+    # filter on city
+    if @city.present?
+      @selection = @selection.where("LOWER(city) = ?", @city.downcase)
+    end
+
+    # filter on category
+    if @category.present?
+      @selection = @selection.where(category_id: params[:category])
+    end
+
+    @left_over_array = Offer.where.not(id: @selection.map(&:id))
+
+    # if we selected at least one filter AND there is no selection
+    if (@search.present? || @city.present? || @category.present?) && @selection.empty?
+      flash.now[:alert] = "Sadly, we couldn't find what you where looking for"
+    end
+  end
 
 
   def create
@@ -16,10 +43,8 @@ class OffersController < ApplicationController
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
     @offer.sold = false
-
     @offer.save!
     redirect_to offer_path(@offer)
-
   end
 
   def show
@@ -68,7 +93,7 @@ class OffersController < ApplicationController
     @offer = current_user.offers.find(params[:id])
   end
     # Never trust parameters from the scary internet, only allow the white list through.
-  def offer_params
-    params.require(:offer).permit(:name, :price, :description, :category_id, :city, :photo, :photo_cache)
+    def offer_params
+      params.require(:offer).permit(:name, :price, :description, :category_id, :city, :photo, :photo_cache)
+    end
   end
-end

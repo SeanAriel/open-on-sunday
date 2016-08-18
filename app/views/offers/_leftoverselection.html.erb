@@ -1,0 +1,39 @@
+
+<div class="wrapper-leftovers">
+
+  <div class="banner-leftovers">
+    <div class="banner-content text-center">
+
+
+      <h2>Other possibilities</h2>
+      <p>We might have an alternative for you. Check these out...</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+
+        <% @left_over_array.each do |offer| %>
+      <div class="col-xs-4">
+        <div class="offer-card">
+          <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
+            <div class="card-category"><%= offer.price %> EUR</div>
+            <div class="card-description">
+          <%= link_to offer_path(offer) do %>
+              <h2>
+                <%= offer.name %>
+              </h2>
+            <% end %>
+              <p>
+              <%= offer.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+        <% end %>
+
+
+    </div>
+  </div>
+</div>
