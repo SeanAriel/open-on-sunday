@@ -1,24 +1,6 @@
+<% if @selection.empty? %>
+  <%= render "leftoverselection" %>
+<% else %>
+  <%= render "selection"%>
+<%end%>
 
-
-<div class="wrapper">
- <div class="container">
-  <div class="row">
-    <% @offers.each do |offer| %>
-
-    <div class="col-xs-12 col-sm-4">
-      <div class="offer-card">
-      <%= link_to offer_path(offer) do %>
-       <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
-        <div class="card-category"><%= offer.price %></div>
-        <div class="card-description">
-          <h2><%= offer.name %></h2>
-          <p><%= offer.description %></p>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
-  <% end %>
-</div>
-</div>
-</div>
