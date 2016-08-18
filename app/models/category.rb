@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-  has_many :offers
+  has_many :offers, dependent: :destroy
 end

@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Category.destroy_all
 
 
 cat = Category.new(name: 'Clothes')
@@ -27,5 +27,4 @@ cat = Category.new(name: 'Accessories')
 cat.save
 
 
-offer_test = Offer.new(name: 'testSeanoff1', city:'gare centrale, bruxelles')
-offer_test.save
+
