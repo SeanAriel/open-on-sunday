@@ -12,16 +12,20 @@
 
           <% @selection.each do |offer| %>
       <div class="col-xs-4">
-               <div class="offer-card">
+               <div class="well">
+                 <div class="label-success">
                 <%= link_to offer_path(offer) do %>
-                 <div class="card" style="background: #D6E5E3, url('../images/logo.jpg');">
-                  <div class="card-category"><%= offer.price %> EUR</div>
-                  <div class="card-description">
-                    <h2><%= offer.name %></h2>
-                    <p><%= offer.description %></p>
-                  </div>
+                <h2 class="text-center label-info"><%= offer.name %></h2>
+                  <div class="card-block">
+                    <div class="card">
+                    <h3><strong> Description: </strong></h3>
+                    <p class="text-danger"  style="word-wrap:break-word" ><%= offer.description %></p>
                 </div>
+                <h4 class="text"><%= offer.price %> EUR</h4>
+
+                  </div>
         <% end %>
+          </div>
           </div>
       </div>
       <% end %>

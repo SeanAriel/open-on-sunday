@@ -2,17 +2,16 @@
 <div class="container">
   <div class="row">
     <% @offers.each do |offer| %>
-    <div class="col-xs-12 col-sm-4">
+    <div class="col-xs-12 col-sm-4 text-center">
       <%= link_to offer_path(offer) do %>
-        <div class="card alert-success" >
+      <div class="well">
+        <div class="panel panel-info">
+         <div class="panel-heading text-warning text-center"> <h1><%= offer.name %> </h1></div>
 
-          <div class="card-block ">
-            <div class="card-header text-center"> <h1><%= offer.name %> </h1></div>
-
-          <div class="card-text ">
-            <p class="card-text" style="word-wrap:break-word"><%= offer.description %></p>
+          <div class="panel-body">
+            <p class="text-danger" style="word-wrap:break-word"><%= offer.description %></p>
           </div>
-          <div class="card-footer text-muted">
+          <div class="text-right">
           <%= offer.price %> EUR
   </div>
         </div>
