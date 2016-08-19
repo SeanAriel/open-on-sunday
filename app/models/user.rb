@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :offers
   has_many :meetings
+  has_many :forumoffers
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.to_h.slice(:provider, :uid)
