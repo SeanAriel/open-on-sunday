@@ -56,6 +56,7 @@ class OffersController < ApplicationController
   end
 
   def show
+    @forumoffer = Forumoffer.new()
     @offer = Offer.find(params[:id])
     @alert_message = 'Careful bro'
     @user = @offer.user
