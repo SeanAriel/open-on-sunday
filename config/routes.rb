@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       member do
         patch :confirm
         patch :decline
+        patch :complete
       end
 
       resources :reviews, only: [:create]
