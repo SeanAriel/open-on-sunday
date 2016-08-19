@@ -5,7 +5,7 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable,
   :omniauthable, omniauth_providers: [:facebook]
 
-
+  has_many :messtousers
   has_many :reviews
   has_many :offers
   has_many :meetings
@@ -30,4 +30,3 @@ class User < ApplicationRecord
       return user
   end
 end
-
