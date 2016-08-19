@@ -1,7 +1,7 @@
-
 <div class="container">
   <div class="row">
     <% @bookings.each do |booking| %>
+    <% if booking.status != "completed" %>
     <div class="col-xs-12 col-sm-4 text-center">
       <%= link_to offers_path(booking) do %>
       <div class="well">
@@ -9,7 +9,7 @@
           <div class="panel-heading text-danger"><h1 class="panel-title"><%= booking.offer.name %></h1></div>
             <p style="word-wrap:break-word"><%= booking.offer.description %></p>
           <div class="card-footer text-muted">
-          <%= booking.availability.startdate %> EUR
+          <%= booking.status %> EUR
   </div>
   <div class="panel panel-sm" >
     <p>
@@ -27,12 +27,19 @@
       <% end %>
       <% if booking.status == "confirmed" && booking.reviews.where(user_id: current_user.id).empty?%>
       <%= simple_form_for([ :dashboard, booking, Review.new ]) do |form| %>
+        <%= form.label 'leave review if transaction completed'%>
         <%= form.input :content %>
         <%= form.button :submit %>
       <% end %>
 
       <% end %>
+      <% if booking.status == "confirmed" && booking.reviews.where(user_id: current_user.id).empty? == false %>
+        <%= link_to 'click if transaction completed', complete_dashboard_meeting_path(booking), method: :patch, class: "btn btn-primary" %>
+      <% end %>
 </div>
       <% end %>
 </div>
+<% end %>
+
 </div>
+

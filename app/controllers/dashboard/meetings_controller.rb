@@ -1,5 +1,5 @@
 class Dashboard::MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:confirm, :decline]
+  before_action :set_meeting, only: [:confirm, :decline, :complete]
 
   def confirm
     @meeting.update(status: "confirmed")
@@ -12,6 +12,11 @@ class Dashboard::MeetingsController < ApplicationController
     @meeting.update(status: "declined")
     @mess = Messtouser.new(title: 'Meeting Declined', content:" #{curent_user.first_name} has declined to meet you", user_id: @meeting.user_id)
        @mess.save!
+    redirect_to dashboard_offers_path
+  end
+
+  def complete
+    @meeting.update(status: "completed")
     redirect_to dashboard_offers_path
   end
 
