@@ -2,5 +2,5 @@ class Meeting < ApplicationRecord
   has_many :reviews
   belongs_to :user
   belongs_to :offer
-  has_one :availabilities
+  belongs_to :availability
 end

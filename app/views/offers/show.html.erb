@@ -39,6 +39,8 @@
     </div>
   </div>
   <br>
+  <% if current_user != @offer.user%>
+
     <div class="row">
       <%= link_to new_offer_meeting_path(@offer) do %>
       <div class="col-xs-12 col-lg-12 text-center" style="color: white; background-color:lightgrey">
@@ -46,6 +48,7 @@
       </div>
       <% end %>
     </div>
+    <% end %>
     <br>
     <div class="col-xs-12 col-lg-6">
       <div id="map" style="width: 100%; height: 200px;"></div>

@@ -1,1 +1,0 @@
-json.array! @messtousers, partial: 'messtousers/messtouser', as: :messtouser

@@ -3,7 +3,7 @@
   <div class="row">
     <% @owner_meetings.each do |meeting| %>
     <div class="col-xs-12 col-sm-4 text-center ">
-      <%= link_to offers_path do %>
+      <%= link_to offers_path(meeting) do %>
       <div class="well">
         <div class="panel panel-info">
           <div class="panel-heading text-danger"> <h1 class="panel-title"><%= meeting.offer.name %> </h1></div>
