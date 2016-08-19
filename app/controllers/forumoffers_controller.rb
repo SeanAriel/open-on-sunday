@@ -6,6 +6,7 @@ class ForumoffersController < ApplicationController
    @forum[:user_id] = current_user.id
    @forum.offer = @offer
    if @forum.save!
+     
      redirect_to offer_path(@offer)
    else
      render 'offers/show'
