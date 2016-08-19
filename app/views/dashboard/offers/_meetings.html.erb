@@ -7,7 +7,7 @@
       <div class="well">
         <div class="panel panel-info">
           <div class="panel-heading text-danger"> <h1 class="panel-title"><%= meeting.offer.name %> </h1></div>
-          <p class="text-alert"> with : <%= meeting.offer.user.email %><p>
+          <p class="text-alert"> with : <%= meeting.offer.user.first_name %><p>
             <p class="text-alert"> status : <%= meeting.status %></p>
       <p class="text-alert"> on : <%= meeting.availability.startdate unless meeting.availability_id.nil? %><p>
             <% end %>
@@ -23,10 +23,12 @@
           </div>
           <% if meeting.status == "confirmed" && meeting.reviews.where(user_id: current_user.id).empty? %>
           <%= simple_form_for([:dashboard, meeting, Review.new ]) do |form| %>
+            <%= form.label 'leave review if transaction completed'%>
             <%= form.input :content %>
             <%= form.button :submit %>
           <% end %>
           <% end %>
+
 
         </div>
       </div>

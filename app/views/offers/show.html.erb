@@ -55,7 +55,27 @@
       </div>
         </div>
 
-      </div>
+    <div class="col-xs-12 col-lg-6">
+      <div class="card-name" style="color:white; font-size:20px;"><%= @user.first_name%></div>
+    </div>
+  </div>
+  <br>
+  <% if current_user != @offer.user.first_name%>
+  <div class="row">
+    <%= link_to new_offer_meeting_path(@offer) do %>
+    <div class="col-xs-12 col-lg-12 text-center" style="color: white; background-color:lightgrey">
+      <h1 class="text-danger"> Click to meet !</h1>
+    </div>
+    <% end %>
+  </div>
+    <% end %>
+  <br>
+  <div class="col-xs-12 col-lg-6">
+    <div id="map" style="width: 100%; height: 200px;"></div>
+  </div>
+  <div>
+    <div class="text-center">
+
 
       <br>
       <% if current_user != @offer.user%>

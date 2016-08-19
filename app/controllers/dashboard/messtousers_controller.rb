@@ -1,6 +1,6 @@
 class Dashboard::MesstousersController < ApplicationController
   before_action :set_messtouser, only: [:show, :edit, :update, :destroy]
-  
+
   def index
     @user = current_user
     @messages = current_user.messtousers
@@ -8,7 +8,7 @@ class Dashboard::MesstousersController < ApplicationController
   def destroy
     @messtouser.destroy
     respond_to do |format|
-      format.html { redirect_to messtousers_url, notice: 'Messtouser was successfully destroyed.' }
+      format.html { redirect_to dashboard_offers_path, notice: 'Messtouser was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
