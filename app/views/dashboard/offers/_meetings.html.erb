@@ -21,6 +21,9 @@
               <% end %>
             </p>
           </div>
+          <% if meeting.status == "confirmed" %>
+          <%= link_to 'Leave a review to the seller of this offer',  '#' %>
+          <% end %>
         </div>
       </div>
     </div>

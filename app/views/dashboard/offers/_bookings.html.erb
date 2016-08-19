@@ -16,12 +16,15 @@
         <% if booking.status == "Requested to Issuer"%>
         <%= link_to 'Confirm This Meeting', confirm_dashboard_meeting_path(booking), method: :patch, class: "btn btn-primary " %>
         <% end %>
-</p>
+  </p>
         <% if booking.status == "Requested to Issuer"%>
         <%= link_to 'Decline This Meeting', decline_dashboard_meeting_path(booking), method: :patch, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-primary" %>
         <% end %>
-      </div>
 
+      </div>
+        <% if booking.status == "confirmed" %>
+        <%= link_to 'Leave a review to the buyer',  '#' %>
+        <% end %>
       </div>
         </div>
       <% end %>
@@ -30,7 +33,3 @@
 </div>
 </div>
 
-
-
-<div class="btn btn-large btn-success"> test</div>
-<div class="btn btn-mini btn-success"> test</div>
