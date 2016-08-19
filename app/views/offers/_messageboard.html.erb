@@ -1,23 +1,24 @@
 <div class="container">
-<div class="row">
-<table class="table table-stripped table-condensed">
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th colspan="8"></th>
-      <th> Author </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @offer.forumoffers.each do |messtouser| %>
+  <div class="row">
+    <table class="table table-stripped table-condensed">
+    <h3> Have a question? Leave a message here...</h3>
+    <thead>
       <tr>
-        <td><%= messtouser.content %></td>
+        <th>Content</th>
         <th colspan="8"></th>
-        <td> by: <%= messtouser.user.email %> </td>
-    <% end %>
-  </tbody>
-</table>
+        <th> Author </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @offer.forumoffers.each do |messtouser| %>
+        <tr>
+          <td><%= messtouser.content %></td>
+          <th colspan="8"></th>
+          <td> by: <%= messtouser.user.email %> </td>
+      <% end %>
+    </tbody>
+  </table>
 
 </div>
 <%= render 'forumoffers/form', offer: @offer, forumoffer: @forumoffers %>
