@@ -1,19 +1,14 @@
 <div class="container">
 
   <div class="profile">
-<<<<<<< HEAD
-    <%= cl_image_tag current_user.facebook_picture_url, class: avatar-large, crop: :fill unless current_user.facebook_picture_url.nil?%>
     <div class="jumbotron">
-      <h1 class="text-info"> Hello <%= @user.first_name%>, Welcome to your Dashboard. </h1>
-    </div>
-  </div>
 
-=======
       <h1 class="text-info"> Hello <%= @user.first_name%>, Welcome to your Dashboard. </h1>
       <%= cl_image_tag current_user.facebook_picture_url, class: 'avatar-large', crop: :fill unless current_user.facebook_picture_url.nil?%>
 
     </div>
   </div>
+
 
   <h1>Message to User</h1>
 
@@ -42,7 +37,6 @@
   <br>
 
 
->>>>>>> 51d5524f96752b7584b814da9fc86a818f3b0463
   <nav class="navbar navbar-inverse">
     <div class="text-center">
       <div class="container-fluid">

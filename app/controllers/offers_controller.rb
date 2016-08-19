@@ -11,7 +11,6 @@ class OffersController < ApplicationController
     @search = params[:search_term]
     @city = params[:city]
     @category = params[:category]
-
     @selection = Offer.all
 
     # filter on title/description
@@ -35,6 +34,15 @@ class OffersController < ApplicationController
     if (@search.present? || @city.present? || @category.present?) && @selection.empty?
       flash.now[:alert] = "Sadly, we couldn't find what you where looking for"
     end
+
+
+    @offers = Offer.near(@city, 5)
+       @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
+        marker.lat offer.latitude
+        marker.lng offer.longitude
+        # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+
   end
 
 
@@ -54,7 +62,7 @@ class OffersController < ApplicationController
     # @offer_coordinates = { lat: @offer.latitude, lng: @offer.longitude }.to_json
     @offers = Offer.near(@offer.city, 5)
     if @offer.latitude && @offer.longitude
-      @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
+       @hash = Gmaps4rails.build_markers(@offers) do |offer, marker|
         marker.lat offer.latitude
         marker.lng offer.longitude
         # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
