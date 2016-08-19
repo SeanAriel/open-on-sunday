@@ -12,25 +12,28 @@
     </div>
     <div class="col-xs-4 col-lg-5 col-lg-offset-1" style="color: white; background-color:lightgrey">
 
+      <h2 class="text-primary"> Price:  </h2>
+      <h2 class="bold"> <%= @offer.price %> EUR </h2>
+      <h2 class="text-primary">Owner:</h2>
+      <h2 class="bold"> <%= link_to @offer.user.first_name, user_path(@offer.user.id) %> </h2>
+      <h2 class="text-primary"> Availabilities:</h2>
+      <div class="well well-invers">
 
-      <h2 class="text-primary"> <strong> Price :</strong>  </h2><h1 class="bold"> <%= @offer.price %> EUR </h1>
-      <h1 class="text-primary"> <strong> Availabilities:</strong> </h1>
-      <div class="well well-invers">  <% @availabilities.each do |availability| %>
-        <div class="card">
-          <dl>
-            <dt class="text-info">Starts :</dt>
-            <dd class="text-right text-danger"> <%= availability.startdate.to_formatted_s(:short)  %> </dd>
-          </dl>
-          <dl>
-            <dt class="text-info">Stops :</dt>
-
-            <dd  class="text-right text-danger"> <%= availability.stopdate.time.to_formatted_s(:short)   %>  </dd>
-          </dl>
-        </div>
-
+        <% @availabilities.each do |availability| %>
+          <div class="card">
+            <dl>
+              <dt class="text-info">Starts :</dt>
+              <dd class="text-right text-danger"> <%= availability.startdate.to_formatted_s(:short)  %> </dd>
+            </dl>
+            <dl>
+              <dt class="text-info">Stops :</dt>
+              <dd  class="text-right text-danger"> <%= availability.stopdate.time.to_formatted_s(:short)   %>  </dd>
+            </dl>
+          </div>
         <% end %>
+
       </div>
-      <h2 class="panel-title"> <strong> Description :</strong>  </h2>
+      <h2 class="panel-title">  Description : </h2>
       <p class="text-justify text-primary"><%= @offer.description %></p>
     </div>
 
