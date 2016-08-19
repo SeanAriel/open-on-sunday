@@ -1,0 +1,46 @@
+.jumbotron {
+  background-color: white;
+}
+
+.wrapper-offer{
+  background-color: #D6E5E3;
+
+}
+
+.wrapper-messageboard{
+  background-color: #FF5E5B;
+  margin-top: 15px;
+  border-radius: 5px;
+}
+
+
+.container .jumbotron, .container-fluid .jumbotron {
+    margin-top: 20px;
+}
+
+.well{
+  margin-bottom: 1px;
+}
+
+#info-offer{
+  margin-top: 20px;
+  background-color: $blue;
+  border-radius: 5px;
+  color: white;
+}
+
+#info-offer.h2{
+  color: white;
+  font-size: 16px;
+}
+
+#info-offer.p{
+  color: $brand-color;
+  font-size: 14px;
+  text-align: justify;
+
+}
+#info-offer.a{
+  color: white;
+  font-size: 16px;
+}
