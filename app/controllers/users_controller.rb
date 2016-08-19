@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+   attr_accessor :first_name
   def show
     @user = User.find(params[:id])
     @offers = @user.offers
