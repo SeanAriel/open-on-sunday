@@ -4,7 +4,7 @@ class Dashboard::OffersController < ApplicationController
     @user = current_user
     @reviews = current_user.reviews
     @owner_meetings = current_user.meetings
-
+    @messtousers = current_user.messtousers
     @bookings = set_bookings(@offers)
 
   end

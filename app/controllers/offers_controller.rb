@@ -90,7 +90,7 @@ class OffersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
   def set_offer
-    @offer = current_user.offers.find(params[:id])
+    @offer = Offer.find(params[:id])
   end
     # Never trust parameters from the scary internet, only allow the white list through.
     def offer_params

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   #routes for facebook-login
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -9,9 +10,11 @@ Rails.application.routes.draw do
     resources :meetings
   end
   namespace :dashboard do
+    resources :messtousers
     resources :offers, only: [:index]
     resources :meetings, only: [] do
       member do
+
         patch :confirm
         patch :decline
       end
