@@ -23,6 +23,9 @@ class MeetingsController < ApplicationController
     def update
       if @meeting.status == "Requested to Issuer"
         if @meeting.save!(meeting_params)
+
+           @mess = Messtouser.new(title: 'Meeting Changed', content:" #{current_user.email} changed his date for the meeting #{@meeting.availability}", user_id: @meeting.offer.user_id)
+           @mess.save!
            redirect_to dashboard_offers_path
         else
           render :edit

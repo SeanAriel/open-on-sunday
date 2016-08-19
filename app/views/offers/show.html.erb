@@ -19,19 +19,20 @@
           <div class="card">
           <dl>
             <dt class="text-info">Starts :</dt>
-            <dd class="text-right"> <%= availability.startdate.to_formatted_s(:short)  %> </dd>
+
+            <dd class="text-right text-danger"> <%= availability.startdate.to_formatted_s(:short)  %> </dd>
           </dl>
           <dl>
             <dt class="text-info">Stops :</dt>
 
-            <dd  class="text-right"> <%= availability.stopdate.time.to_formatted_s(:short)   %>  </dd>
+            <dd  class="text-right text-danger"> <%= availability.stopdate.time.to_formatted_s(:short)   %>  </dd>
           </dl>
   </div>
 
           <% end %>
           </div>
           <h2 class="panel-title"> <strong> Description :</strong>  </h2>
-        <p class="text-justify"><%= @offer.description %></p>
+        <p class="text-justify text-primary"><%= @offer.description %></p>
       </div>
 
     <div class="col-xs-12 col-lg-6">
