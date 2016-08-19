@@ -1,6 +1,7 @@
 class Offer < ApplicationRecord
   has_many :meetings, dependent: :destroy
   has_many :availabilities, dependent: :destroy
+  has_many :forumoffers, dependent: :destroy
   belongs_to :user
   belongs_to :category
   geocoded_by :city

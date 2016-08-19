@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'forumoffers/create'
+
   #routes for facebook-login
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :offers do
     resources :availabilities
     resources :meetings
+    resources :forumoffers
   end
   namespace :dashboard do
     resources :messtousers
