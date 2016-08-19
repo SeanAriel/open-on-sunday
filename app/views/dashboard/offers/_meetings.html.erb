@@ -9,7 +9,7 @@
           <div class="panel-heading text-danger"> <h1 class="panel-title"><%= meeting.offer.name %> </h1></div>
           <p class="text-alert"> with : <%= meeting.offer.user.email %><p>
             <p class="text-alert"> status : <%= meeting.status %></p>
-
+      <p class="text-alert"> on : <%= meeting.availability.startdate unless meeting.availability_id.nil? %><p>
             <% end %>
             <div class="panel panel-sm"><p>
               <% if meeting.status == "Requested to Issuer"%>
