@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row">
+    <% @owner_meetings.each do |meeting| %>
+    <div class="col-xs-12 col-sm-4 text-center ">
+      <%= link_to offers_path(meeting) do %>
+      <div class="well">
+        <div class="panel panel-info">
+          <div class="panel-heading text-danger"> <h1 class="panel-title"><%= meeting.offer.name %> </h1></div>
+          <p class="text-alert"> with : <%= meeting.offer.user.email %><p>
+            <p class="text-alert"> status : <%= meeting.status %></p>
+      <p class="text-alert"> on : <%= meeting.availability.startdate unless meeting.availability_id.nil? %><p>
+            <% end %>
+            <div class="panel panel-sm"><p>
+              <% if meeting.status == "Requested to Issuer"%>
+              <%= link_to 'Delete This Meeting', offer_meeting_path(meeting.offer_id, meeting), method: :delete, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-warning btn-sm", style: "border-radius: 5px; padding: 10px;" %>
+              <% end %>
+            </p> <p>
+              <% if meeting.status == "Requested to Issuer"%>
+              <%= link_to 'Update this Meeting', edit_offer_meeting_path(meeting.offer_id, meeting), class: "btn btn-warning btn-sm", style: "border-radius: 5px; padding: 10px;" %>
+              <% end %>
+            </p>
+          </div>
+          <% if meeting.status == "confirmed" && meeting.reviews.where(user_id: current_user.id).empty? %>
+          <%= simple_form_for([:dashboard, meeting, Review.new ]) do |form| %>
+            <%= form.input :content %>
+            <%= form.button :submit %>
+          <% end %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,17 +1,81 @@
 
 
-<div class="wrapper"></div>
-  <div class="container">
+<div class="container">
 
-    <div class="profile">
-        <h1 class="text-info"> Profil of <%= @user.first_name%> <%= @user.last_name%></h1>
-        <h3 class="text-info"> Current offers of <%= @user.first_name%> : </h3>
+<% unless @messtousers.empty? %>
+<div class="container">
+  <h1>Message to User</h1>
 
-          <ul>
-          <% @user.offers.each do |offer| %>
-            <li> <%=link_to offer.name, offer_path(offer)%></li>
-          <% end %>
-          </ul>
-      </div>
+  <table class="table table-bordered table-responsive">
+    <thead>
+      <tr>
+        <th class="active">Title</th>
+        <th class="success">Content</th>
+        <th class="info">User</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @messtousers.each do |messtouser| %>
+        <tr>
+          <td class="warning"><%= messtouser.title %></td>
+          <td class="danger"><%= messtouser.content %></td>
+      <td>    <%= link_to 'Delete This Message', dashboard_messtouser_path(messtouser), method: :delete, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px;" %> </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
   </div>
-</div>
+<% end %>
+  <br>
+
+
+  <nav class="navbar navbar-default label-success">
+    <div class="text-center">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-text"> Here's what we can have</div>
+        </div>
+        <ul class="nav navbar-nav navbar-center ">
+
+          <li>
+            <a id="tab" class="nav-pill text-active tab" href="#" data-target="#offers" role="tab" data-toggle="tab" aria-expanded="true">
+              Current offers
+            </a>
+          </li>
+          <li>
+            <a id="tab"  class="nav-pill text-active tab" href="#" data-target="#reviews" role="tab" data-toggle="tab" aria-expanded="true">
+              Reviews
+            </a>
+          </li>
+          <li>
+            <a id="tab"  class="nav-pill text-active tab" href="#" data-target="#upcoming-meeting" role="tab" data-toggle="tab" aria-expanded="true">
+              Your Meetings (you made) </a>
+            </li><li>
+              <a id="tab" class="nav-pill text-active tab" href="#" data-target="#successful-meetings" role="tab" data-toggle="tab" aria-expanded="true">
+                Your Bookings (people booked)
+              </a>
+            </li>
+          </div>
+        </div>
+      </nav>
+
+      <div class="tab-content" id="offers">
+        <%= render 'offers', offer: @offers %>
+      </div>
+
+
+      <div class="tab-content hidden" id="reviews">
+        <%= render 'reviews', offer: @buy_review_received %>
+
+      </div>
+
+      <div class="tab-content hidden" id="upcoming-meeting">
+        <%= render 'meetings', offer: @meetings %>
+      </div>
+
+      <div class="tab-content hidden" id="successful-meetings">
+        <%= render 'bookings', offer: @bookings %>
+      </div>
+    </div>
