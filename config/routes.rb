@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :forumoffers
   end
 
+  resources :users, only: [:show]
+
   namespace :dashboard do
     resources :messtousers
     resources :offers, only: [:index]

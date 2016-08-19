@@ -1,0 +1,17 @@
+
+
+<div class="wrapper"></div>
+  <div class="container">
+
+    <div class="profile">
+        <h1 class="text-info"> Profil of <%= @user.first_name%> <%= @user.last_name%></h1>
+        <h3 class="text-info"> Current offers of <%= @user.first_name%> : </h3>
+
+          <ul>
+          <% @user.offers.each do |offer| %>
+            <li> <%=link_to offer.name, offer_path(offer)%></li>
+          <% end %>
+          </ul>
+      </div>
+  </div>
+</div>
