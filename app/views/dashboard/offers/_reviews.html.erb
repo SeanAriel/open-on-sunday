@@ -1,0 +1,22 @@
+
+<div class="container">
+  <div class="row">
+    <% @buy_review_received.each do |reviews| %>
+   <% reviews.each do |review| %>
+    <div class="col-xs-12 col-sm-4 text-center">
+      <div class="well">
+        <div class="panel">
+          <div class="panel-heading text-danger"><h1 class="panel-title">
+        <%= review.content %></h1>
+</div>
+</div>
+</div>
+</div>
+
+
+      <% end %>
+      <% end %>
+</div>
+</div>
+
+

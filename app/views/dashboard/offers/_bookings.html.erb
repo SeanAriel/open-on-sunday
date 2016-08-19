@@ -22,11 +22,15 @@
         <% end %>
 
       </div>
-        <% if booking.status == "confirmed" %>
-        <%= link_to 'Leave a review to the buyer',  '#' %>
-        <% end %>
       </div>
         </div>
+      <% end %>
+      <% if booking.status == "confirmed" && booking.reviews.where(user_id: current_user.id).empty?%>
+      <%= simple_form_for([ :dashboard, booking, Review.new ]) do |form| %>
+        <%= form.input :content %>
+        <%= form.button :submit %>
+      <% end %>
+
       <% end %>
 </div>
       <% end %>

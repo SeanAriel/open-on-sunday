@@ -7,19 +7,20 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :offers do
     resources :availabilities
-    resources :meetings do
-      resources :reviews, only: [:create]
-    end
+    resources :meetings
   end
+
   namespace :dashboard do
     resources :messtousers
     resources :offers, only: [:index]
+
     resources :meetings, only: [] do
       member do
-
         patch :confirm
         patch :decline
       end
+
+      resources :reviews, only: [:create]
     end
   end
 end
