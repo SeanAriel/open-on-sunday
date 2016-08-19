@@ -7,38 +7,40 @@
     </div>
   </div>
 
+<% unless @messtousers.empty? %>
+<div class="container">
   <h1>Message to User</h1>
 
-  <table class="table table-stripped table-condensed">
+  <table class="table table-bordered table-responsive">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Content</th>
-        <th>User</th>
-        <th colspan="3"></th>
+        <th class="active">Title</th>
+        <th class="success">Content</th>
+        <th class="info">User</th>
       </tr>
     </thead>
 
     <tbody>
       <% @messtousers.each do |messtouser| %>
         <tr>
-          <td><%= messtouser.title %></td>
-          <td><%= messtouser.content %></td>
+          <td class="warning"><%= messtouser.title %></td>
+          <td class="danger"><%= messtouser.content %></td>
       <td>    <%= link_to 'Delete This Message', dashboard_messtouser_path(messtouser), method: :delete, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-primary", style: "border-radius: 5px; padding: 10px;" %> </td>
         </tr>
       <% end %>
 
     </tbody>
   </table>
-
+  </div>
+<% end %>
   <br>
 
 
-  <nav class="navbar navbar-inverse">
+  <nav class="navbar navbar-default label-success">
     <div class="text-center">
       <div class="container-fluid">
         <div class="navbar-header">
-          <div class="navbar-text"> Dashboard</div>
+          <div class="navbar-text"> Here's what we can have</div>
         </div>
         <ul class="nav navbar-nav navbar-center ">
 

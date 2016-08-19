@@ -1,0 +1,16 @@
+
+
+<%= simple_form_for [@offer,@forumoffer], url:  offer_forumoffers_path(@offer), :html => {class: 'form-group'}  do |f| %>
+
+<div class="col-sm-1 col-sm-offset-4">
+<%= f.label :content, class:'form-control' %>
+</div>
+<div class="col-sm-3">
+  <%= f.text_field :content, class: 'form-control' %>
+</div>
+
+<div class="actions">
+  <%=  f.submit 'submit', :class => 'btn btn-primary' %>
+</div>
+
+<% end %>

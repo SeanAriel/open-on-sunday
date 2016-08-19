@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'forumoffers/create'
 
   #routes for facebook-login
   devise_for :users,
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   resources :offers do
     resources :availabilities
     resources :meetings
+    resources :forumoffers
   end
 
   namespace :dashboard do
