@@ -3,34 +3,36 @@
   <div class="row">
     <% @bookings.each do |booking| %>
     <div class="col-xs-12 col-sm-4 text-center">
-      <%= link_to offers_path do %>
+      <%= link_to offers_path(booking) do %>
       <div class="well">
         <div class="panel">
           <div class="panel-heading text-danger"><h1 class="panel-title"><%= booking.offer.name %></h1></div>
             <p style="word-wrap:break-word"><%= booking.offer.description %></p>
           <div class="card-footer text-muted">
-          <%= booking.offer.price %> EUR
+          <%= booking.availability.startdate %> EUR
   </div>
   <div class="panel panel-sm" >
     <p>
         <% if booking.status == "Requested to Issuer"%>
         <%= link_to 'Confirm This Meeting', confirm_dashboard_meeting_path(booking), method: :patch, class: "btn btn-primary " %>
         <% end %>
-</p>
+  </p>
         <% if booking.status == "Requested to Issuer"%>
         <%= link_to 'Decline This Meeting', decline_dashboard_meeting_path(booking), method: :patch, data: { confirm: "sure you wanna do that Bro?" }, class: "btn btn-primary" %>
         <% end %>
-      </div>
 
+      </div>
       </div>
         </div>
       <% end %>
+      <% if booking.status == "confirmed" && booking.reviews.where(user_id: current_user.id).empty?%>
+      <%= simple_form_for([ :dashboard, booking, Review.new ]) do |form| %>
+        <%= form.input :content %>
+        <%= form.button :submit %>
+      <% end %>
+
+      <% end %>
 </div>
       <% end %>
 </div>
 </div>
-
-
-
-<div class="btn btn-large btn-success"> test</div>
-<div class="btn btn-mini btn-success"> test</div>

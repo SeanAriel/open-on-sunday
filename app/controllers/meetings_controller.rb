@@ -14,6 +14,8 @@ class MeetingsController < ApplicationController
       @meeting.status = "Requested to Issuer"
       @meeting.offer = @offer
       @meeting.save!
+      @mess = Messtouser.new(title: 'Meeting Changed', content:" #{current_user.email} has made a new meeting with you", user_id: @meeting.offer.user_id)
+         @mess.save!
       redirect_to dashboard_offers_path
     end
 
@@ -23,6 +25,7 @@ class MeetingsController < ApplicationController
     def update
       if @meeting.status == "Requested to Issuer"
         if @meeting.save!(meeting_params)
+
            @mess = Messtouser.new(title: 'Meeting Changed', content:" #{current_user.email} changed his date for the meeting #{@meeting.availability}", user_id: @meeting.offer.user_id)
            @mess.save!
            redirect_to dashboard_offers_path
@@ -49,7 +52,7 @@ class MeetingsController < ApplicationController
     end
 
     def meeting_params
-      params.require(:meeting).permit(:availability)
+      params.require(:meeting).permit(:availability_id)
     end
     def set_offer
       @offer = Offer.find(params[:offer_id])

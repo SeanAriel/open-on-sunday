@@ -34,12 +34,12 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to dashboard_offers_path do %>
-                <i class="fa fa-user"></i> <%= t(dashboard_offers_path, default: "Profile") %>
+                <i class="fa fa-user"></i> <%= t(dashboard_offers_path, default: "Dashboard") %>
               <% end %>
             </li>
             <li>
               <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t(".profile", default: "Home") %>
+                <i class="fa fa-home"></i>  <%= t(".dashboard", default: "Home") %>
               <% end %>
             </li>
             <li>
@@ -67,9 +67,21 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
+        <li>
+          <%= link_to dashboard_offers_path do %>
+            <i class="fa fa-user"></i> <%= t(dashboard_offers_path, default: "Dashboard") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to root_path do %>
+            <i class="fa fa-home"></i>  <%= t("Home", default: "Home") %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+            <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
