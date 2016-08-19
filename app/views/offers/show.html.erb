@@ -42,7 +42,7 @@
     </div>
   </div>
   <br>
-  <% if current_user != @offer.user%>
+  <% if current_user != @offer.user.first_name%>
   <div class="row">
     <%= link_to new_offer_meeting_path(@offer) do %>
     <div class="col-xs-12 col-lg-12 text-center" style="color: white; background-color:lightgrey">
