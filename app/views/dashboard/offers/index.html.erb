@@ -1,8 +1,6 @@
 <div class="container">
 
   <div class="profile">
-    <div class="jumbotron">
-
       <h1 class="text-info"> Hello <%= @user.first_name%>, Welcome to your Dashboard. </h1>
       <%= cl_image_tag current_user.facebook_picture_url, class: 'avatar-large', crop: :fill unless current_user.facebook_picture_url.nil?%>
 
@@ -74,6 +72,8 @@
 
 
       <div class="tab-content hidden" id="reviews">
+        <%= render 'reviews', offer: @buy_review_received %>
+
       </div>
 
       <div class="tab-content hidden" id="upcoming-meeting">

@@ -17,11 +17,14 @@ Rails.application.routes.draw do
   namespace :dashboard do
     resources :messtousers
     resources :offers, only: [:index]
+
     resources :meetings, only: [] do
       member do
         patch :confirm
         patch :decline
       end
+
+      resources :reviews, only: [:create]
     end
   end
 end

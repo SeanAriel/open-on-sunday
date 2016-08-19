@@ -21,6 +21,13 @@
               <% end %>
             </p>
           </div>
+          <% if meeting.status == "confirmed" && meeting.reviews.where(user_id: current_user.id).empty? %>
+          <%= simple_form_for([:dashboard, meeting, Review.new ]) do |form| %>
+            <%= form.input :content %>
+            <%= form.button :submit %>
+          <% end %>
+          <% end %>
+
         </div>
       </div>
     </div>
